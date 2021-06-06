@@ -765,7 +765,6 @@ echo Windows Telemetry And Bloatware Removal
 timeout 2 > nul
 cls
 netsh advfirewall firewall add rule name="Block Windows Telemetry" dir=in action=block remoteip=134.170.30.202,137.116.81.24,157.56.106.189,184.86.53.99,2.22.61.43,2.22.61.66,204.79.197.200,23.218.212.69,65.39.117.23,65.55.108.23,64.4.54.254 enable=yes > nul
-netsh advfirewall firewall add rule name="Block NVIDIA Telemetry" dir=in action=block remoteip=8.36.80.197,8.36.80.224,8.36.80.252,8.36.113.118,8.36.113.141,8.36.80.230,8.36.80.231,8.36.113.126,8.36.80.195,8.36.80.217,8.36.80.237,8.36.80.246,8.36.113.116,8.36.113.139,8.36.80.244,216.228.121.209 enable=yes > nul
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableSoftLanding /t REG_DWORD /d 1 /f
@@ -857,7 +856,6 @@ sc delete TermService
 sc delete UmRdpService
 sc delete SessionEnv
 sc delete TroubleshootingSvc
-
 for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "wscsvc" ^| find /i "wscsvc"') do (reg delete %I /f)
 for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "OneSyncSvc" ^| find /i "OneSyncSvc"') do (reg delete %I /f)
 for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "MessagingService" ^| find /i "MessagingService"') do (reg delete %I /f)
@@ -961,6 +959,11 @@ cls
 echo Debloat
 timeout 2 > nul
 cls
+setlocal enabledelayedexpansion
+for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
+  set "del=%%a"
+)
+:main
 call :colortext F0 "This script is"
 call :colortext FA " SEMI-REVERSIBLE"
 call :colortext F0 " and will allow you to choose apps you want to remove." && echo .
@@ -968,21 +971,15 @@ echo Keep in mind that not every app can come back, are you sure you want to con
 set /p con=
 if /i "%con%" == "no" cls && echo Exiting. && timeout 1 >nul && cls && echo Exiting.. && timeout 1 >nul && cls && echo Exiting... && timeout 1 >nul && cls && exit
 if /i "%con%" == "yes" (
-       goto :debloat
+       goto debloat
 ) else (
      cls && echo Misspell detected.
      timeout 2 >nul
      cls && echo Returning. && timeout 1 >nul && cls && echo Returning.. && timeout 1 >nul && cls && echo Returning... && timeout 1 >nul && cls
      goto :exit
 )
-:exit
-echo Bye Bye..
-timeout 2 > nul
-echo Exit...
-timeout 1 > nul
-exit
 
-:debloat
+debloat
 cls
 call :colortext FC "Remove" && echo  3D Builder?
 set /p con= 
@@ -1279,61 +1276,6 @@ call :colortext FC "Remove" && echo  Twitter (MS Store version)?
 set /p con= 
 if /i "%con%" == "yes" cls && PowerShell -Command "Get-AppxPackage *Twitter* | Remove-AppxPackage" && cls
 if /i "%con%" == "no" ^ && cls
-
-cls && cls
-call :colortext F4 "Advanced" && echo  Debloating (Not Recommended)
-timeout 2 >nul
-echo Are you sure you want to continue?
-set /p con=
-if /i "%con%" == "yes" goto advanced
-if /i "%con%" == "no" goto exit
-
-:advanced
-cls && cls
-call :colortext F4 "PERMANENTLY REMOVE" && echo  All Startup entries?
-set /p con= 
-if /i "%con%" == "yes" cls && reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /va /f >nul && reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /va /f >nul && reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /va /f >nul && reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /va /f >nul && cls
-if /i "%con%" == "no" ^ && cls
-
-cls && cls
-call :colortext F4 "PERMANENTLY REMOVE" && echo  OEM AppX Packages?
-set /p con= 
-if /i "%con%" == "yes" cls && cd C:\ProgramData >nul && takeown /f "Packages" >nul && takeown /f "Packages\*" >nul && rd /s /q "Packages" >nul && cls
-if /i "%con%" == "no" ^ && cls
-
-cls
-cls
-call :colortext F4 "PERMANENTLY REMOVE" && echo  Microsoft Connect?
-set /p con= 
-if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  Microsoft-PPIProjection-Package /r >nul && cls
-if /i "%con%" == "no" ^ && cls
-
-cls && cls
-call :colortext F4 "PERMANENTLY REMOVE" && echo  Remote Desktop Package?
-set /p con= 
-if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  RemoteDesktopServices-Base-Package /r >nul && cls
-if /i "%con%" == "no" ^ && cls
-
-cls && cls
-call :colortext F4 "PERMANENTLY REMOVE" && echo  Windows Fax Client?
-set /p con= 
-if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  Microsoft-Windows-Fax-Client-Feature-Opt-Package /r >nul && cls
-if /i "%con%" == "no" ^ && cls
-
-cls && cls
-call :colortext F4 "PERMANENTLY REMOVE" && echo  Windows OneDrive Setup?
-set /p con= 
-if /i "%con%" == "yes" cls && cd /d "%~dp0" && install_wim_tweak.exe /o /c  Microsoft-Windows-OneDrive-Setup-Package /r >nul && install_wim_tweak.exe /o /c  Microsoft-Windows-OneDrive-Setup-WOW64-Package /r >nul && cls
-if /i "%con%" == "no" ^ && cls
-
-cls && cls
-call :colortext F4 "PERMANENTLY REMOVE" && echo  All AppX Packages?
-set /p con= 
-if /i "%con%" == "yes" cls && cd "C:\Program Files" >nul && takeown /f "WindowsApps" >nul && takeown /f "WindowsApps\*" >nul && rd /s /q "WindowsApps" >nul && cls
-if /i "%con%" == "no" ^ && cls
-
-echo You Windows 10 Is Debloated.
-timeout 2 > nul
 cls
 echo Booster
 timeout 2 > nul
