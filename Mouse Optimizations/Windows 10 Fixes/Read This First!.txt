@@ -1,0 +1,3 @@
+To Remove All The Mouse Acceleration Use MarkC Mouse Fix
+But,First Check Your Display, Press Win+I System-Scale And Layout The First is the Scale Find The Scale Layout Match Click On The .reg With The Scale The Same,Click On Yes Ok.
+You Are Done.
