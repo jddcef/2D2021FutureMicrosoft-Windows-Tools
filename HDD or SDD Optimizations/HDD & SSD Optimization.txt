@@ -1,0 +1,15 @@
+HDD:
+fsutil behavior set disabledeletenotify 1 > nul
+fsutil behavior set mftzone 2 > nul 
+fsutil behavior set disablelastaccess 1 > nul
+fsutil behavior set memoryusage 2 > nul
+fsutil behavior set encryptpagingfile 0 > nul
+SSD:
+fsutil behavior set disabledeletenotify 0 > nul
+fsutil behavior set mftzone 2 > nul 
+fsutil behavior set disablelastaccess 1 > nul
+fsutil behavior set memoryusage 2 > nul
+fsutil behavior set encryptpagingfile 0 > nul
+
+I Being Aware Thease A Floating For A While, But It Still Boost Read & Write Speed.
+Thanks.
