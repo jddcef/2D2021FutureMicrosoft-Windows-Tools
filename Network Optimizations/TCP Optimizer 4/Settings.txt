@@ -1,0 +1,72 @@
+Open TCP  Optimizer, Run As Adminstrator. Click Ok Custom 
+Here Are The Settings To Boost Internet
+Chose Settings: Make Sure is Custom!
+
+Network Adapter Selection: Your Ethernet Or Wifi Adapter Also, Modify All Network Adapters Check It.
+
+TCP Window Auto-Tuning: normal
+
+Windows Scaling Heuristics: disabled
+
+Congestion Control Provider: ctcp
+
+Recive-Side Scaling [RSS]: enabled
+
+R.Segment Coalescing [RSC]: enabled
+
+Time To Live [TTL]: 64
+
+ECN Capability: disabled
+
+Checksum Offloading: disabled
+
+TCP Chimney Offload: disabled
+
+Large Send Offload [LSO]: disabled
+
+TCP 1323 Timestamps: disabled
+
+MaxConnectionPer1_0Server: 10
+
+MaxConnectionPerServer: 10
+
+LocalPriorty: 4
+
+HostPriority: 5
+
+DnsPriority: 6
+
+NetbtPriority: 7
+
+Max SYN Retransmissions: 2
+
+NonStackRttResiliency: disabled
+
+Initial RTO: 2000
+
+Min RTO: 300
+
+QOS: NonBestEffortLimit: 0
+
+QOS :Do not use NLA: Optimal:1
+
+NetworkThrottlingIndex: disabled:ffffffff
+
+SystemResponsiveness: gaming: 0
+
+tcpAckFrequency: disabled 1
+
+TCPNoDelay: enabled 1
+
+TcpDelAckTicks: disabled: 0
+
+LargeSystemCache: enabled 1
+
+Size: default:1
+
+MaxUserPort: 65534
+
+TcpTimedWaitDelay: 30
+
+Click Apply Changes Press Yes And Your Pc Restart.
+Enjoy Your Fast Internet.
