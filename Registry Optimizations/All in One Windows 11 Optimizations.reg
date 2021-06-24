@@ -646,3 +646,11 @@ Windows Registry Editor Version 5.00		Made By 2D2021FuturebackMicrosoft
 	00,00,70,00,00,00,00,00,\
 	00,00,A8,00,00,00,00,00,\
 	00,00,E0,00,00,00,00,00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\GpuEnergyDrv]
+"Start"=dword:00000004
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"ConvertibleSlateMode"=dword:00000000
+"Win32PrioritySeparation"=dword:00000016
+"IRQ8Priority"=dword:00000001
