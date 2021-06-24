@@ -38,7 +38,7 @@ cls
 
 :question
 echo Welcome To Win11Script-Optimization! Boost Windows To MAX Performance!
-echo        Reccomended Optimizations                            Optinal Optimization    
+echo        Reccomended Optimizations                            Optional Optimization    
 echo Type "optimization" for Best Windows Optimizations Type "start service" To Start Services App!
 echo ----------------------------------------------------------------------------------------------
 echo Type "restore" to Create a System Restore Point. Type "stop service" To Stop Services App!
