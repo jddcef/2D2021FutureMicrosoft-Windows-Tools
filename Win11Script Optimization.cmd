@@ -11,8 +11,8 @@ for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
 echo Checking is Running as Adminstator...
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 if '%errorlevel%' NEQ '0' (
-  goto UACPrompt
-) else ( goto getadmin )
+  goto :UACPrompt
+) else ( goto :getadmin )
 timeout 4 > nul
 cls
 
