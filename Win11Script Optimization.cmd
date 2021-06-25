@@ -39,22 +39,22 @@ cls
 :question
 echo Welcome To Win11Script-Optimization! Boost Windows To MAX Performance!
 echo        Reccomended Optimizations                            Optional Optimization    
-echo Type "optimization" for Best Windows Optimizations Type "start service" To Start Services App!
+echo Type "optimization" for Best Windows Optimizations  |Type "start service" To Start Services App!
+echo --------------------------------------------------- | -------------------------------------------
+echo Type "restore" to Create a System Restore Point.    |Type "stop service" To Stop Services App!
+echo Type "use-restore" To Use the Restore Point.        |   
+echo ----------------------------------------------------| -------------------------------------------
+echo Type "revert" to Reverse the effects of the optimization | Type "backup" To Backup Your Drives.
 echo ----------------------------------------------------------------------------------------------
-echo Type "restore" to Create a System Restore Point. Type "stop service" To Stop Services App!
-echo Type "use-restore" To Use the Restore Point.
-echo -----------------------------------------------------------------------------------------------
-echo Type "revert" to Reverse the effects of the optimization Type "backup" To Backup Your Drives.
-echo ----------------------------------------------------------------------------------------------
-echo Type "restart" to Restart your PC in 5 minutes! Type "clean" To Disk Cleanup! (Does Not Remove Windows)  
+echo Type "restart" to Restart your PC in 5 minutes!    | Type "clean" To Disk Cleanup! (Does Not Remove Windows)  
 echo --------------------------------------------------------------------------------------------------------
-echo Type "info" For More Info About The Optimizations. Type "reset update" to Reset Windows Update.   
+echo Type "info" For More Info About The Optimizations. | Type "reset update" to Reset Windows Update.   
 echo -----------------------------------------------------------------------------------------------
-echo Type "exit" to Exit.  Type "enable feature" to Enable Windows Feature App!
+echo Type "exit" to Exit. | Type "enable feature" to Enable Windows Feature App!
 echo --------------------------------------------------------------------------
-echo Type "remove" To Debloat! (!Automatically!)    Type "disable feature To Disable Windows Feature App!
+echo Type "remove" To Debloat! (!Automatically!)  |  Type "disable feature To Disable Windows Feature App!
 echo -----------------------------------------------------------------------------------------------------
-echo Type "scan" To Scan and Repair corrupt files. Type "windows check activate" To Check Windows Activation Status!
+echo Type "scan" To Scan and Repair corrupt files. |  Type "windows check activate" To Check Windows Activation Status!
 echo ---------------------------------------------------------------------------------------------------------------  
 echo Type "user" To User Account Management. 
 echo -----------------------------------------
