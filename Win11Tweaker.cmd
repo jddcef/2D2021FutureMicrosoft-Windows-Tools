@@ -80,7 +80,7 @@ timeout 4 > nul
 cls
 
 :os failed
-echo Sorry, Your OS Is Not Supported.
+echo Sorry, Your OS Is Not Supported This Script.
 timeout 3 > nul
 exit
 
