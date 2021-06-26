@@ -3,11 +3,6 @@ color 04
 title Boost Windows Performance by 2D2021FutureMicrosoft
 cls
 
-setlocal enabledelayedexpansion
-for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
-  set "del=%%a"
-)
-
 :question
 echo Welcome To Win11Script-Optimization! Boost Windows To MAX Performance!
 echo Type "optimization" for Best Windows Optimizations  |Type "start service" To Start Services App!
