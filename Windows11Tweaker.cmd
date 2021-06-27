@@ -1,6 +1,6 @@
 echo off
 color 03
-title Boost Windows Performance by 2D2021FutureMicrosoft
+title Windows11Tweaker
 cls
 
 :question
