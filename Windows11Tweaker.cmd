@@ -50,8 +50,6 @@ if "%a%" == "gpu" goto :gpu
 cls
 
 :gpu
-
-
 echo Type "Nividia" For Nividia GPU Optimizations.
 echo ---------------------------------------------
 echo Type "Amd" For AMD GPU Optimizations.
