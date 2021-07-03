@@ -74,50 +74,50 @@ if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :quad9
-netsh interface ipv4 set dns "Wi-Fi" static 9.9.9.9
-netsh interface ipv4 set dns "Wi-Fi" static 149.112.112.112 index=2
-netsh interface ipv4 set dns name=”Ethernet” static 9.9.9.9
-netsh interface ipv4 set dns name=”Ethernet” static 149.112.112.112 index=2
+netsh interface ipv4 set dns "Wi-Fi" static 9.9.9.9 > nul
+netsh interface ipv4 set dns "Wi-Fi" static 149.112.112.112 index=2 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 9.9.9.9 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 149.112.112.112 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :comodo
-netsh interface ipv4 set dns "Wi-Fi" static 8.26.56.26
-netsh interface ipv4 set dns "Wi-Fi" static 8.20.247.20 index=2
-netsh interface ipv4 set dns name=”Ethernet” static 8.26.56.26
-netsh interface ipv4 set dns name=”Ethernet” static 8.20.247.20 index=2
+netsh interface ipv4 set dns "Wi-Fi" static 8.26.56.26 > nul
+netsh interface ipv4 set dns "Wi-Fi" static 8.20.247.20 index=2 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 8.26.56.26 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 8.20.247.20 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :dnswatch
-netsh interface ipv4 set dns "Wi-Fi" static 84.200.69.80
-netsh interface ipv4 set dns "Wi-Fi" static 84.200.70.40 index=2
-netsh interface ipv4 set dns name=”Ethernet” static 84.200.69.80
-netsh interface ipv4 set dns name=”Ethernet” static 84.200.70.40 index=2
+netsh interface ipv4 set dns "Wi-Fi" static 84.200.69.80 > nul
+netsh interface ipv4 set dns "Wi-Fi" static 84.200.70.40 index=2 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 84.200.69.80 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 84.200.70.40 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :verisign
-netsh interface ipv4 set dns "Wi-Fi" static 64.6.64.6
-netsh interface ipv4 set dns "Wi-Fi" static 64.6.65.6 index=2
-netsh interface ipv4 set dns name=”Ethernet” static 64.6.64.6
-netsh interface ipv4 set dns name=”Ethernet” static 64.6.65.6 index=2
+netsh interface ipv4 set dns "Wi-Fi" static 64.6.64.6 > nul
+netsh interface ipv4 set dns "Wi-Fi" static 64.6.65.6 index=2 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 64.6.64.6 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 64.6.65.6 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :opennic
-netsh interface ipv4 set dns "Wi-Fi" static 192.95.54.3
-netsh interface ipv4 set dns "Wi-Fi" static 192.95.54.1 index=2
-netsh interface ipv4 set dns name=”Ethernet” static 192.95.54.3
-netsh interface ipv4 set dns name=”Ethernet” static 192.95.54.1 index=2
+netsh interface ipv4 set dns "Wi-Fi" static 192.95.54.3 > nul
+netsh interface ipv4 set dns "Wi-Fi" static 192.95.54.1 index=2 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 192.95.54.3 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 192.95.54.1 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
@@ -153,30 +153,30 @@ if "%a%" == "back ipv4" goto :primary
 cls
 
 :google
-netsh interface ipv6 set dns "Wi-Fi" static 2001:4860:4860::8888
-netsh interface ipv6 set dns "Wi-Fi" static 2001:4860:4860::8844 index=2.
-netsh interface ipv6 set dns "Ethernet" static 2001:4860:4860::8888
-netsh interface ipv6 set dns name=”Ethernet” static 2001:4860:4860::8844 index=2
+netsh interface ipv6 set dns "Wi-Fi" static 2001:4860:4860::8888  > nul
+netsh interface ipv6 set dns "Wi-Fi" static 2001:4860:4860::8844 index=2 > nul
+netsh interface ipv6 set dns "Ethernet" static 2001:4860:4860::8888 > nul
+netsh interface ipv6 set dns name=”Ethernet” static 2001:4860:4860::8844 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :cloudflare
-netsh interface ipv6 set dns "Wi-Fi" static 2606:4700:4700::1111
-netsh interface ipv6 set dns "Wi-Fi" static 2606:4700:4700::1001 index=2
-netsh interface ipv6 set dns name=”Ethernet” static 2606:4700:4700::1111
-netsh interface ipv6 set dns name=”Ethernet” static 2606:4700:4700::1001 index=2
+netsh interface ipv6 set dns "Wi-Fi" static 2606:4700:4700::1111 > nul
+netsh interface ipv6 set dns "Wi-Fi" static 2606:4700:4700::1001 index=2 > nul
+netsh interface ipv6 set dns name=”Ethernet” static 2606:4700:4700::1111 > nul
+netsh interface ipv6 set dns name=”Ethernet” static 2606:4700:4700::1001 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :openDNS
-netsh interface ipv6 set dns "Wi-Fi" static 2620:119:35::35
-netsh interface ipv6 set dns "Wi-Fi" static 2620:119:53::53 index=2
-netsh interface ipv6 set dns name=”Ethernet” static 2620:119:35::35
-netsh interface ipv6 set dns name=”Ethernet” static 2620:119:53::53 index=2
+netsh interface ipv6 set dns "Wi-Fi" static 2620:119:35::35 > nul
+netsh interface ipv6 set dns "Wi-Fi" static 2620:119:53::53 index=2 > nul
+netsh interface ipv6 set dns name=”Ethernet” static 2620:119:35::35 > nul
+netsh interface ipv6 set dns name=”Ethernet” static 2620:119:53::53 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
@@ -184,28 +184,28 @@ if "%a%" == "No" goto :Primary
 
 :quad9
 netsh
-netsh interface ipv6 set dns "Wi-Fi" static 2620:fe::fe2620:fe::9
-netsh interface ipv6 set dns name=”Ethernet” static 2620:fe::fe2620:fe::9
+netsh interface ipv6 set dns "Wi-Fi" static 2620:fe::fe2620:fe::9 > nul
+netsh interface ipv6 set dns name=”Ethernet” static 2620:fe::fe2620:fe::9 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :dnswatch
-netsh interface ipv4 set dns "Wi-Fi" static 2001:1608:10:25::1c04:b12f
-netsh interface ipv4 set dns "Wi-Fi" static 2001:1608:10:25::9249:d69b index=2
-netsh interface ipv4 set dns name=”Ethernet” static  2001:1608:10:25::1c04:b12f
-netsh interface ipv4 set dns name=”Ethernet” static  2001:1608:10:25::9249:d69b index=2
+netsh interface ipv4 set dns "Wi-Fi" static 2001:1608:10:25::1c04:b12f > nul
+netsh interface ipv4 set dns "Wi-Fi" static 2001:1608:10:25::9249:d69b index=2 > nul
+netsh interface ipv4 set dns name=”Ethernet” static  2001:1608:10:25::1c04:b12f > nul
+netsh interface ipv4 set dns name=”Ethernet” static  2001:1608:10:25::9249:d69b index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :Primary
 
 :verisign
-netsh interface ipv4 set dns "Wi-Fi" static 2620:74:1b::1:1
-netsh interface ipv4 set dns "Wi-Fi" static 2620:74:1c::2:2 index=2
-netsh interface ipv4 set dns name=”Ethernet” static 2620:74:1b::1:1
-netsh interface ipv4 set dns name=”Ethernet” static 2620:74:1c::2:2 index=2
+netsh interface ipv4 set dns "Wi-Fi" static 2620:74:1b::1:1 > nul
+netsh interface ipv4 set dns "Wi-Fi" static 2620:74:1c::2:2 index=2 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 2620:74:1b::1:1 > nul
+netsh interface ipv4 set dns name=”Ethernet” static 2620:74:1c::2:2 index=2 > nul
 The Operation Succes, Would You Like To Exit? (Yes Or No)
 set /p a=
 if "%a%" == "Yes" goto :exit
