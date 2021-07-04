@@ -1,9 +1,0 @@
-Open The Interrupt Addinity Tool, Press Ok If You Have Errors,
-1.Find You GPU,Press Win+X Press M And Then It Will Open Device Manager,Click On Display Adapters, You Will See Your Graphics Card Name.
-2. At The Iterrupt Addinity Tool, Find You Graphics Card Name Click Ok, Click Set Mask
-Cores:
-2 Core CPU Set To 1
-4. Core CPU Set It to 1 
-8 Core CPU Set Into 2
-Any Core Above Set Into 7 Or 8
-Click Ok, CLick Ok Press Done And You Are Done.
