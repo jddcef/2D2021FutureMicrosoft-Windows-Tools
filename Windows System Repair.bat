@@ -1,12 +1,12 @@
 @echo off
-color 04
+color 03
 title Windows System Repair
 cls 
  
 :question
 echo Welcome To Windows System Repair!
 echo -------------------------------------
-echo Type "chkdsk" To Check Disk           
+echo Type "chkdsk" To Check Disk.           
 echo ----------------------------------------
 echo Type "dism scan" To DISM Scan.         
 echo --------------------------------------- 
@@ -27,12 +27,11 @@ echo ------------------------------------
 echo Type "register" To Re Register All DLLs.
 echo ---------------------------------------- 
 echo Tye "exit" To Exit.
-echo ----------Advanced Repairs-----------
+echo ----------------------------------------
 echo Type "fix win" To Fix Windows image.
 echo ------------------------------------
 echo Type "sys restore" To System Restore
 echo ------------------------------------
-echo 
 echo What Would you Like?
 set /p a=
 if "%a%" == "chkdsk" goto :check disk
