@@ -13,21 +13,42 @@ cls
 
 :question
 echo Choose Your Windows Versions For Activation:
-echo ----------------------------
+echo --------------------------------------------
 echo Type "win10" For Windows 10 Activation Or Lower OS.
 echo ------------------------------------------------
-echo Type "win11" For Windows 11 Activation (Beta Feature)
+echo Type "win11" For Windows 11 Activation (People Who Have Windows 11)
 echo ----------------------------------------------------
 echo Type "office" For Microsoft Office Products Activations.
 echo -------------------------------------------------------
 echo Type "exit" To Exit
 echo -------------------------------------------------------
+echo  Type "office 365" For Office 365 Activations.
+echo ------------------------------------------------------
 echo What Would You Like?
 set /p a=
 if "%a%" == "win10" goto :win10
 if "%a%" == "win11" goto :win11
 if "%a%" == "office" goto :office
 if "%a%" == "exit" goto :exit
+if "%a%" == "office 365" goto :office365
+
+:office365
+title Activate Office 365 for FREE - MSGuides.com&cls&echo ============================================================================&echo Operation: Activating Microsoft software products for FREE without software&echo ============================================================================&echo.&echo Supported Products: Office 365 (x86-x64)&echo.&echo.&(if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16")&(if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16")&(for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&(for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&echo.&echo ============================================================================&echo Activating your Office 365...&cscript //nologo slmgr.vbs /ckms >nul&cscript //nologo ospp.vbs /setprt:1688 >nul&cscript //nologo ospp.vbs /unpkey:WFG99 >nul&cscript //nologo ospp.vbs /unpkey:DRTFM >nul&cscript //nologo ospp.vbs /unpkey:BTDRB >nul&cscript //nologo ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99 >nul&set i=1
+:server
+if %i%==1 set KMS=kms7.MSGuides.com
+if %i%==2 set KMS=kms8.MSGuides.com
+if %i%==3 set KMS=kms9.MSGuides.com
+if %i%==4 goto notsupported
+cscript //nologo ospp.vbs /sethst:%KMS% >nul&echo ============================================================================&echo.&echo.
+cscript //nologo ospp.vbs /act | find /i "successful" && (echo.&echo ============================================================================&echo.&echo || (echo The connection to Bypass server failed! Trying to connect to another one... & echo Please wait... & echo. & echo. & set /a i+=1 & goto server)
+explorer "http://MSGuides.com"&goto halt
+:notsupported
+echo.&echo ============================================================================&echo Sorry! Your Office 365 Version is not supported.&echo Please try installing the latest version here: bit.ly/odt2k16
+:halt
+echo The Activation Has Been Completed Succesfully. Would You Like To Exit?
+set /p a=
+if "%a%" == "Yes" goto :exit
+if "%a%" == "No" goto :question
 
 :office
 cscript ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
