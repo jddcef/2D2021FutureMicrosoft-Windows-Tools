@@ -3,7 +3,7 @@ color 03
 title Background Cooler
 cls
 
-echo Welcome To Win11BackgroundCooler!
+echo Welcome To Background Cooler!
 timeout 2 > nul
 cls
 
