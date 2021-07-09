@@ -24,6 +24,8 @@ echo Type "exit" To Exit
 echo -------------------------------------------------------
 echo  Type "office 365" For Office 365 Activations.
 echo ------------------------------------------------------
+echo Type "check activation" To Check Windows Activation.
+echo -----------------------------------------------------
 echo What Would You Like?
 set /p a=
 if "%a%" == "win10" goto :win10
@@ -31,8 +33,30 @@ if "%a%" == "win11" goto :win11
 if "%a%" == "office" goto :office
 if "%a%" == "exit" goto :exit
 if "%a%" == "office 365" goto :office365
+if "%a%" == "check activation" goto :CheckWindowsactivation
 
-:office365
+:CheckWindowsactivation
+cls
+cd /d %~dp0
+setLocal EnableDelayedExpansion
+if exist "%Windir%\Sysnative\sppsvc.exe" set SysPath=%Windir%\Sysnative
+if exist "%Windir%\System32\sppsvc.exe"  set SysPath=%Windir%\System32
+
+echo  Windows Status:
+echo =================
+ver
+cscript //nologo %SysPath%\slmgr.vbs /dli
+cscript //nologo %SysPath%\slmgr.vbs /xpr
+
+echo.
+echo.
+call :msgBox ok
+
+echo Would You Like To Exit?
+set /p a=
+if "%a%" == "Yes" goto :exit
+if "%a%" == "No" goto :question
+office365
 title Activate Office 365 for FREE - MSGuides.com&cls&echo ============================================================================&echo Operation: Activating Microsoft software products for FREE without software&echo ============================================================================&echo.&echo Supported Products: Office 365 (x86-x64)&echo.&echo.&(if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16")&(if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16")&(for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&(for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&echo.&echo ============================================================================&echo Activating your Office 365...&cscript //nologo slmgr.vbs /ckms >nul&cscript //nologo ospp.vbs /setprt:1688 >nul&cscript //nologo ospp.vbs /unpkey:WFG99 >nul&cscript //nologo ospp.vbs /unpkey:DRTFM >nul&cscript //nologo ospp.vbs /unpkey:BTDRB >nul&cscript //nologo ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99 >nul&set i=1
 :server
 if %i%==1 set KMS=kms7.MSGuides.com
