@@ -1287,7 +1287,7 @@ reg add "HKLM\Software\Policies\Microsoft\MRT" /v "DontOfferThroughWUAU" /t REG_
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions" /f
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps" /f
 cls
-echo Would you like to exit? (Yes/No)
+echo Windows Optimization Has Been Applied! Would you like to exit? (Yes/No)
 set /p l=
 if "%l%" == "yes" goto :exit
 if "%l%" == "no" goto :exit
