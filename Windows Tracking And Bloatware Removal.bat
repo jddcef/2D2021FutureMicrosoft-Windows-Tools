@@ -3,6 +3,89 @@ color 03
 title Windows Tracking And Bloatware Removal
 cls
 
+schtasks /delete /F /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser"
+	schtasks /delete /F /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdater"
+	schtasks /delete /F /TN "\Microsoft\Windows\Autochk\Proxy"
+	schtasks /delete /F /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
+	schtasks /delete /F /TN "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask"
+	schtasks /delete /F /TN "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip"
+	schtasks /delete /F /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector"
+	schtasks /delete /F /TN "\Microsoft\Windows\PI\Sqm-Tasks"
+	schtasks /delete /F /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem"
+	schtasks /delete /F /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
+	schtasks /delete /f /tn "\Microsoft\Windows\application experience\Microsoft compatibility appraiser"
+	schtasks /delete /f /tn "\Microsoft\Windows\application experience\aitagent"
+	schtasks /delete /f /tn "\Microsoft\Windows\application experience\programdataupdater"
+	schtasks /delete /f /tn "\Microsoft\Windows\autochk\proxy"
+	schtasks /delete /f /tn "\Microsoft\Windows\customer experience improvement program\consolidator"
+	schtasks /delete /f /tn "\Microsoft\Windows\customer experience improvement program\kernelceiptask"
+	schtasks /delete /f /tn "\Microsoft\Windows\customer experience improvement program\usbceip"
+	schtasks /delete /f /tn "\Microsoft\Windows\diskdiagnostic\Microsoft-Windows-diskdiagnosticdatacollector"
+	schtasks /delete /f /tn "\Microsoft\Windows\maintenance\winsat"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\activateWindowssearch"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\configureinternettimeservice"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\dispatchrecoverytasks"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\ehdrminit"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\installplayready"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\mcupdate"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\mediacenterrecoverytask"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\objectstorerecoverytask"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\ocuractivate"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\ocurdiscovery"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\pbdadiscovery">nul 2>&1
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\pbdadiscoveryw1"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\pbdadiscoveryw2"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\pvrrecoverytask"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\pvrscheduletask"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\registersearch"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\reindexsearchroot"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\sqlliterecoverytask"
+	schtasks /delete /f /tn "\Microsoft\Windows\media center\updaterecordpath"
+	sc stop Diagtrack
+	sc config Diagtrack start= disabled
+
+	:: Remote Registry (disable only)
+	sc config remoteregistry start= disabled
+	sc stop remoteregistry
+
+	:: Retail Demo
+	sc stop RetailDemo
+	sc delete RetailDemo
+
+	:: "WAP Push Message Routing Service"
+	sc stop dmwappushservice
+	sc config dmwappushservice start= disabled
+
+	:: Windows Event Collector Service (disable only)
+	sc stop Wecsvc
+	sc config Wecsvc start= disabled
+
+	:: Xbox Live services
+	sc stop XblAuthManager
+	sc stop XblGameSave
+	sc stop XboxNetApiSvc
+	sc stop XboxGipSvc
+	sc stop xbgm
+	sc config XblAuthManager start= demand
+	sc config XblGameSave start= demand
+	sc config XboxNetApiSvc start= demand
+	sc config XboxGipSvc start= demand
+	sc config xbgm start= demand
+  %REG% ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SilentInstalledAppsEnabled" /d 0 /f
+  %REG% add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d "0" /f
+	%REG% add "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d "0" /f
+  %REG% add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\AutoLogger-Diagtrack-Listener" /v "Start" /t REG_DWORD /d "0" /f
+  %REG% add "HKLM\software\microsoft\wcmsvc\wifinetworkmanager" /v "wifisensecredshared" /t REG_DWORD /d "0" /f
+	%REG% add "HKLM\software\microsoft\wcmsvc\wifinetworkmanager" /v "wifisenseopen" /t REG_DWORD /d "0" /f
+  %REG% add "HKLM\software\microsoft\windows defender\spynet" /v "spynetreporting" /t REG_DWORD /d "0" /f
+	%REG% add "HKLM\software\microsoft\windows defender\spynet" /v "submitsamplesconsent" /t REG_DWORD /d "0" /f
+  %REG% add "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /v "Start" /t REG_DWORD /d "4" /f
+  %REG% add "HKLM\SYSTEM\CurrentControlSet\Services\dmwappushservice" /v "Start" /t REG_DWORD /d "4" /f
+  %REG% add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowCortana" /t REG_DWORD /d "0" /f
+	%REG% add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowCortanaAboveLock" /t REG_DWORD /d "0" /f
+	%REG% add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowSearchToUseLocation" /t REG_DWORD /d "0" /f
+  %REG% add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEnabled" /t REG_DWORD /d "0" /f
+	%REG% add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEnabled" /t REG_DWORD /d "0" /f
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /disable
 schtasks /Change /TN "Microsoft\Windows\Application Experience\AitAgent" /disable
 schtasks /Change /TN "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /disable
