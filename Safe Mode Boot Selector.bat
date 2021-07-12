@@ -1,8 +1,6 @@
 @echo off
-title Safe Mode Boot Tool v1.0
+title Safe Mode Boot Tool 
 mode 50,15
-REM Safe Mode Boot Tool v1.0 by /u/cuddlychops06
-REM Updated: September 4th, 2013 8:38pm
 
 :winxpcheck
 %SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Microsoft Windows XP" >nul 2>nul
