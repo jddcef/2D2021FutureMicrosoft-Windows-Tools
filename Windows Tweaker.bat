@@ -3,6 +3,47 @@ color 03
 title Windows Tweaker
 cls
 
+bcdedit /set useplatformclock no
+bcdedit /set useplatformtick yes
+bcdedit /set disabledynamictick yes
+bcdedit /timeout 0
+bcdedit /set nx optout
+bcdedit /set tpmbootentropy ForceDisable
+bcdedit /set tscsyncpolicy Enhanced
+bcdedit /set pae forceenable
+bcdedit /set x2apicpolicy enable
+fsutil behavior set mftzone 4
+fsutil behavior set memoryusage 2
+bcdedit /set uselegacyapicmode no
+fsutil behavior set DisableLastAccess 1
+bcdedit /set linearaddress57 OptOut
+bcdedit /set increaseuserva 268435328
+bcdedit /set firstmegabytepolicy UseAll
+bcdedit /set avoidlowmemory 0x8000000
+bcdedit /set nolowmem Yes
+bcdedit /set configaccesspolicy Default
+bcdedit /set MSI Default
+bcdedit /set usephysicaldestination No
+bcdedit /set bootmenupolicy Legacy 
+bcdedit /set usefirmwarepcisettings No 
+bcdedit /set sos Yes 
+bcdedit /set quietboot Yes 
+bcdedit /set vsmlaunchtype Off 
+bcdedit /set ems No 
+bcdedit /set noumex Yes
+bcdedit /set bootems No 
+bcdedit /set graphicsmodedisabled No 
+bcdedit /set extendedinput Yes 
+bcdedit /set highestmode Yes 
+bcdedit /set forcefipscrypto No 
+bcdedit /set perfmem 0
+bcdedit /set clustermodeaddressing 1 
+bcdedit /set configflags 0
+bcdedit /set uselegacyapicmode No 
+bcdedit /set onecpu No 
+bcdedit /set halbreakpoint No 
+bcdedit /set forcelegacyplatform No 
+cls
 bcdedit /set disabledynamictick yes > nul
 bcdedit /set useplatformtick yes > nul
 bcdedit /set tscsyncpolicy enhanced > nul
