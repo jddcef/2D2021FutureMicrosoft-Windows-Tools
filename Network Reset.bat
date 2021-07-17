@@ -1,8 +1,24 @@
 echo off
 color 03
-title Network Fix
+title Network Reset
 cls
 
+:wincheck
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Microsoft Windows XP" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows Vista" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 7" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 8" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 8.1" >nul 2>nul
+if %errorlevel% EQU 0 (goto :nosupport) (else :start)
+
+:nosupport
+echo Your Windows Version is not Support This Script.
+echo Supported OS is: Windows 10 Higher OS.
+timeout 2 > nul 
+cls
+goto :bye
+
+:start
 reg add "HKLM\Software\Policies\Microsoft\Windows\NetworkConnectivityStatusIndicator" /v "NoActiveProbe" /t REG_DWORD /d "0" /f
 reg add "HKLM\System\CurrentControlSet\Services\NlaSvc\Parameters\Internet" /v "EnableActiveProbing" /t REG_DWORD /d "1" /f
 cls
@@ -73,7 +89,7 @@ ipconfig /release
 ipconfig /renew
 ipconfig /flushdns
 cls
-echo Network Fix Has Fixed Network! The PC Needed To Be Restart. (Yes/No)
+echo Network Reset Has Reseted Network! The PC Needed To Be Restart. (Yes/No)
 set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :bye
