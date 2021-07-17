@@ -9,9 +9,9 @@ cls
 %SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 7" >nul 2>nul
 %SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 8" >nul 2>nul
 %SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 8.1" >nul 2>nul
-if %errorlevel% EQU 0 goto :nosupport else 
+if %errorlevel% EQU 0 (goto :nosupport) (else :start)
 
-:starr
+:start
 echo Welcome To Background Cooler!
 timeout 2 > nul
 cls
