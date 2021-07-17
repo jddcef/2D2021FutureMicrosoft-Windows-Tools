@@ -70,6 +70,6 @@ exit
 
 :nosupport
 cls
-echo Windows XP not supported This Script. Exiting.
+echo Windows XP,7,8 not supported This Script. Exiting...
 ping -n 4 127.0.0.1 >nul
 exit
