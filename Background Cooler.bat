@@ -3,6 +3,15 @@ color 03
 title Background Cooler
 cls
 
+:winxpcheck
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Microsoft Windows XP" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows Vista" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 7" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 8" >nul 2>nul
+%SystemRoot%\System32\reg.exe query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductName | find "Windows 8.1" >nul 2>nul
+if %errorlevel% EQU 0 goto :nosupport else 
+
+:starr
 echo Welcome To Background Cooler!
 timeout 2 > nul
 cls
@@ -30,6 +39,12 @@ set /p a=
 if "%a%" == "Yes" goto :exit
 if "%a%" == "No" goto :exit
 
+:nosupport
+echo Your Windows Version is not Support This Script.
+echo Supported OS is: Windows 10 Higher OS.
+timeout 2 > nul 
+cls
+goto :exit
 
 :exit 
 exit
