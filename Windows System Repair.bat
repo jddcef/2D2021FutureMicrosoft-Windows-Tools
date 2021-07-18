@@ -99,18 +99,20 @@ set /p g=
 if "%g%" == "yes" goto :yes
 if "%g%" == "no" goto :question
 
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :check disk
 echo Which Disk You Want To Check Disk?
-echo Drives Number
+echo Drives Name
 echo A Drive 
-echo B Drive 
+echo B Drive
 echo C Drive (System Drive)
 echo D Drive
 echo E Drive
 echo F Drive
 echo G Drive
 echo H Drive
-echo I Drive (Hm...)
+echo I Drive 
 echo J Drive
 echo K Drive
 echo L Drive
@@ -127,7 +129,7 @@ echo V Drive
 echo W Drive
 echo X Drive 
 echo Y Drive
-echo Z Drive (Do Somewone Still Use This Drive Letter?)
+echo Z Drive
 echo Unsure About Which Drive To Check Disk? Type "about".
 echo Type The Drive Number.
 set /p g=
@@ -339,6 +341,8 @@ echo Would you like to exit?
 set /p g=
 if "%g%" == "yes" goto :yes
 if "%g%" == "no" goto :question
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :Dism /scan
 Dism /Online /Cleanup-Image /ScanHealth
