@@ -216,10 +216,4 @@ for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k 
 for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "BcastDVRUserService" ^| find /i "BcastDVRUserService"') do (reg delete %I /f)
 for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "Sgrmbroker" ^| find /i "Sgrmbroker"') do (reg delete %I /f)
 cls
-echo Windows Telemetry And Bloatware Has Been Disabled! Would You Like To Exit (Yes/No)
-set /p a=
-if "%a%" == "Yes" goto :exit
-if "%a%" == "No" goto :exit
-
-:exit
-exit
+pause
